@@ -1,19 +1,44 @@
 from pathlib import Path
 
-# Creating a Path object for the directory
-directory = Path("./picture2/new_folder")
+"""
+    Функція для обчислення загальної суми та середньої заробітної плати з даних у файлі.
 
-# Check if the directory exists
-if directory.exists() and directory.is_dir():
-    # Output the list of all files and subdirectories
-    for path in directory.iterdir():
-        print(path)
-else:
-    if not directory.exists():
-    # Якщо директорія не існує, створюємо її
-        directory.mkdir(parents=True, exist_ok=True)
-        print("The directory does not exist.")
+    Args:
+        path (str): Шлях до файлу з даними про заробітну плату.
+
+    Returns:
+        tuple: Кортеж, що містить загальну суму та середню заробітну плату.
+               Якщо файл не знайдено або відбулася помилка, повертається (0, 0).
+"""
 
 
-directory = Path("/my_directory/new_folder")
-directory.mkdir(parents=True, exist_ok=True)
+def total_salary(path):
+    try:
+        with open(path, "r", encoding="utf-8") as file:
+            array = file.readlines()
+            if len(array) == 0:
+                return 0, 0
+            total = sum([float(i.split(",")[1].strip()) for i in array])
+            return total, total / len(array)
+    except FileNotFoundError:
+        print(f"File '{path}' not found.")
+        return 0, 0
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 0, 0
+
+
+def main():
+    path = input("Enter file path: ")
+    if not path:
+        path = "./py/name.txt"
+
+    total, average = total_salary(path)
+
+    print(
+        f"Загальна сума заробітної плати: {total:.2f}, Середня заробітна плата: {average:.2f}"
+    )
+
+
+if __name__ == "__main__":
+    main()

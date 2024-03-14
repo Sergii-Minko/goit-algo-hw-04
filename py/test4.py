@@ -15,6 +15,7 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added."
 
+
 # Змінює номер телефону існуючого контакту.
 def change_contact(args, contacts):
     if len(args) != 2:
@@ -25,6 +26,7 @@ def change_contact(args, contacts):
     contacts[name] = phone
     return "Contact updated."
 
+
 # Виводить телефонний номер для вказаного імені контакту.
 def show_phone(args, contacts):
     if len(args) != 1:
@@ -34,6 +36,7 @@ def show_phone(args, contacts):
         return contacts[name]
     else:
         return "Contact not found."
+
 
 # Виводить усі контакти.
 def show_all(contacts):
