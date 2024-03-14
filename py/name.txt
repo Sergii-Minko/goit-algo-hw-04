@@ -1,0 +1,13 @@
+John Smith,4000
+Anna Johnson,3500
+Michael Brown,2800
+Emily Lee,3200
+Daniel Garcia,4200
+Sophia Kim,3900
+David Rodriguez,3100
+Olivia Martinez,3700
+William Nguyen,2900
+Emma Hernandez,3300
+Alex Korp,3000
+Nikita Borisenko,2000
+Sitarama Raju,1000
